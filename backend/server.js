@@ -10,13 +10,23 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 // ✅ Use MONGO_URI from .env (instead of hardcoded)
 connectDB(process.env.MONGO_URI);
 
-const app = express();
 
-// Middleware
+
+
+
+// In your server.js or app.js
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5173", "https://babloo7739.github.io"],
+  origin: [
+    "http://localhost:3000", 
+    "http://localhost:5173", 
+    "https://babloo7739.github.io",
+    "https://masala-ecommerce.netlify.app"  
+  ],
   credentials: true
 }));
+
+
+
 
 app.use(express.json());
 
@@ -24,6 +34,13 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
+
+
+
+
+
+
+
 
 // Test route
 app.get("/", (req, res) => {
