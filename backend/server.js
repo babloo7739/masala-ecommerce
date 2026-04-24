@@ -9,6 +9,7 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 
 // ✅ Use MONGO_URI from .env (instead of hardcoded)
 connectDB(process.env.MONGO_URI);
+const app = express();
 
 
 
