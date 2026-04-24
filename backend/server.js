@@ -14,20 +14,22 @@ connectDB(process.env.MONGO_URI);
 
 
 
-// In your server.js or app.js
+// Make sure CORS is properly configured
 app.use(cors({
   origin: [
     "http://localhost:3000",
     "http://localhost:5173",
     "https://babloo7739.github.io",
-    "https://masala-ecommerce.netlify.app"
+    "https://masala-ecommerce.netlify.app",  // ← Your Netlify URL
+    "https://masala-ecommerce.netlify.app"   // ← Also add without trailing slash
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options("*", cors()); // 
-
-
+// Handle preflight requests
+app.options('*', cors());
 
 
 app.use(express.json());

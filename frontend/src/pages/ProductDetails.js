@@ -1,6 +1,3 @@
-
-
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById, addReview } from "../services/api";
