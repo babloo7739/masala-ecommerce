@@ -17,13 +17,15 @@ connectDB(process.env.MONGO_URI);
 // In your server.js or app.js
 app.use(cors({
   origin: [
-    "http://localhost:3000", 
-    "http://localhost:5173", 
+    "http://localhost:3000",
+    "http://localhost:5173",
     "https://babloo7739.github.io",
-    "https://masala-ecommerce.netlify.app"  
+    "https://masala-ecommerce.netlify.app"
   ],
   credentials: true
 }));
+
+app.options("*", cors()); // 
 
 
 
